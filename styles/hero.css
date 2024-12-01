@@ -1,23 +1,25 @@
 section.hero {  
   max-width: 80rem;
   width: 100%;
-  padding: 2.5rem 2rem;
+  padding: 1rem 1.5rem;
   margin-inline: auto;   
-  justify-content: space-between;
+  justify-content: space-between; 
+  flex-direction: column-reverse;
 
   display: flex;
   align-items: center;
 
-  overflow: hidden;
+  overflow: hidden;   
  
-  & h1 {
-    max-width: 40rem;
-  }
+  & .container { 
+    max-height: 21rem;
+    margin-bottom: 2rem;    
+  } 
 
   & h1 div {    
     display: inline-block; 
     overflow: hidden;
-    height: 5rem; 
+    height: 2.5rem; 
     width: min-content; 
     vertical-align: bottom;
   } 
@@ -39,10 +41,11 @@ section.hero {
   }
 
   /* buttons */
-& .buttons {
+  & .buttons {   
+  flex-direction: column-reverse;
   display: flex;
   gap: 2rem;
-  margin-top: 3rem;
+  margin-top: 3rem;  
 
   & .button {
     display: flex;
@@ -112,8 +115,8 @@ section.hero {
     animation: slideIn 3s ease forwards;
   }
 
-  & img[src*="stars-1"] {
-    max-width: 5.5rem;
+  & img[src*="stars-1"] { 
+    max-width: 3.5rem;
     top: 30%;
     z-index: 0; 
 
@@ -122,8 +125,8 @@ section.hero {
     animation: slideIn 2s 800ms ease both, appear 100ms 800ms both;
   }
 
-  & img[src*="stars-2"] {
-    max-width: 2.5rem;
+  & img[src*="stars-2"] { 
+    max-width: 1.62rem;
     right: 0;
     bottom: 35%;  
 
@@ -215,5 +218,37 @@ section.hero {
 
   100% {
     transform: translateY(-15rem);
+  }
+}
+
+@media (width >= 80rem) {
+  & section.hero { 
+    padding: 2rem 2.5rem;
+    flex-direction: row; 
+
+    & .container {
+      max-height: none;
+      margin-bottom: none;  
+    }
+
+    & h1 { 
+      max-width: 40rem;  
+      font-size: 4rem;  
+    }
+    & h1 div {     
+      height: 5rem;  
+    } 
+    
+    & .buttons {
+      flex-direction: row;
+    }  
+    & > div:nth-child(2) {
+      & img[src*="stars-1"] { 
+        max-width: 5.5rem; 
+      }
+      & img[src*="stars-2"] {
+        max-width: 2.5rem;
+      }
+    } 
   }
 }

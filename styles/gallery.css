@@ -5,7 +5,7 @@ section.gallery {
   margin-inline: auto;
 
   & header {
-    text-align: center;  
+    text-align: center;    
   }
   & header span{
     font: 500 var(--text-sm)/1.5  var(--ff-base); 
@@ -14,21 +14,18 @@ section.gallery {
     width: 100%;
     height: auto;
   }
-  & .content {
+  & .content { 
     margin-top: 2rem;
-    display: grid;
-    grid-template-areas: 
-    "A B B"
-    "C C D";
+    display: flex;
+    flex-direction: column;  
+    gap: 1.5rem;
 
-    gap: 2.5rem;
-
-    & figure {
+    & figure {  
       border-radius: 2.5rem;
       overflow: hidden;
       position: relative;
-      line-height: 0;
-
+      line-height: 0; 
+       
       animation: image-appear linear backwards;
       animation-timeline: view();
       animation-range: 100px 300px;
@@ -37,10 +34,11 @@ section.gallery {
         animation-range: 150px 350px;
       }
 
-      & > img {
-        height: 25rem;
+      & > img { 
+        height: 16rem;
         object-fit: cover; 
         transition: scale 500ms;
+        width: 100%;
       }
       &:hover {
         & > img {
@@ -99,4 +97,27 @@ section.gallery {
     opacity: 0;
     transform: translateY(100%);
   }
+}
+ 
+@media(width >= 80rem) {
+  & h2 {
+    font-size: 2.5rem;
+  }
+  & section.gallery {
+    & .content {   
+      margin-top: 2rem;
+      display: grid;
+      grid-template-areas: 
+      "A B B"
+      "C C D";
+  
+      gap: 2.5rem; 
+
+      & figure {
+        & > img {
+          height: 25rem;  
+        }
+      }
+    } 
+  } 
 }
